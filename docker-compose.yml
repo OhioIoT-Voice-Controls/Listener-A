@@ -1,0 +1,22 @@
+
+
+services:
+
+  mosquitto:
+    image: eclipse-mosquitto:2
+    container_name: mosquitto
+    restart: always
+    ports:
+      - "1883:1883"
+    volumes:
+      - ./mosquitto.conf:/mosquitto/config/mosquitto.conf:ro
+
+  listener:
+    image: lvincek/listener_a:latest
+    container_name: listener
+    restart: always
+    devices:
+      - /dev/snd:/dev/snd
+    group_add:
+      - audio
+
