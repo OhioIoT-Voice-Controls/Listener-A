@@ -2,11 +2,12 @@
 
 ##### [(back to the Voice Controls organization page)](https://github.com/OhioIoT-Voice-Controls)
 
-This is the most basic implementation of our Vosk listener.  Pull this repo onto a Raspberry Pi and run it.  The `docker-compose.yml` will spin up a Vosk listener and an MQTT broker.  Anything you say that is picked up by Vosk will be sent as an MQTT message where the topic is `voice/command` and the payload is the words spoken.  You can see this repo in use in the OhioIoT YouTube video [3 Step To Your Custom Voice Control](https://youtu.be/_ERvoHMBDac).
+This is the most basic implementation of our Vosk listener.  The `docker-compose.yml` will spin up a Vosk listener and an MQTT broker.  Anything you say that is picked up by Vosk will be sent as an MQTT message with topic `voice/command` where the payload is the collection of words spoken.
 
+You can see this repo in use in the OhioIoT YouTube video [3 Step To Your Custom Voice Control](https://youtu.be/_ERvoHMBDac).
 
 ## Installation
-- Plug a USB microphone into a Raspberry Pi that has Docker and Docker Hub installed (see more below)
+- Plug a USB microphone into a Raspberry Pi
 - SSH into the Raspberry Pi with Docker and Docker Hub installed:
 ```
 git clone https://github.com/OhioIoT-Voice-Controls/Listener-A.git listener_a
