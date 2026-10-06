@@ -16,6 +16,16 @@ docker compose up
 ```
 At this point whatever speech that is interpreted by Vosk will be sent out to the Mosquitto broker.  You can connect any other application to that broker, subscribe to `voice/command`, and then the the words that you speak will flow to that application in the message payloads.
 
+In this repo you see `listener.py`.  This is not currently being used for anything here.  It is simply an artifact.  It is a copy of the script that is running inside the container, and is here for reference.  To witness this file inside the container, when the container is running, type:
+```
+docker exec -it listener sh
+```
+And then, when inside the Listener container:
+```
+cd /app
+ls -la
+cat listener.py
+```
 
 ## Links
 - [OhioIoT YouTube Channel](https://www.youtube.com/@ohioiot) - Agenda free tutorials showing you how to get started in IoT
