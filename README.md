@@ -2,7 +2,7 @@
 
 ##### [(back to the Voice Controls organization page)](https://github.com/OhioIoT-Voice-Controls)
 
-This is the most basic implementation of our Vosk listener.  The `docker-compose.yml` will spin up a Vosk listener and an MQTT broker.  Anything you say that is picked up by Vosk will be sent as an MQTT message with topic `voice/command` where the payload is the collection of words spoken.
+This is the most basic implementation of our Vosk listener.  The `docker-compose.yml` will spin up a Vosk listener and an MQTT broker.  Anything you say that is picked up by Vosk will be sent as an MQTT message with topic `voice/command` where the payload is the collection of words spoken.  
 
 You can see this repo in use in the OhioIoT YouTube video [3 Step To Your Custom Voice Control](https://youtu.be/_ERvoHMBDac).
 
@@ -14,7 +14,7 @@ git clone https://github.com/OhioIoT-Voice-Controls/Listener-A.git listener_a
 cd listener_a
 docker compose up
 ```
-At this point whatever speech that is interpreted by Vosk will be sent out to the Mosquitto broker.  You can connect any other application to that broker, subscribe to `voice/command`, and then the the words that you speak will flow to that application in the message payloads.
+At this point whatever speech that is interpreted by Vosk will be sent out to the Mosquitto broker.  Once you confirm the IP address of your Raspberry Pi, you can connect any other device to the Mosquitto broker, exposed on port 1883.  Your connected devices can subscribe to `voice/command` and hear what you are saying in the incoming message payloads.
 
 In this repo you see `listener.py`.  This is not currently being used for anything here.  It is simply an artifact.  It is a copy of the script that is running inside the container, and is here for reference.  To witness this file inside the container, when the container is running, type:
 ```
