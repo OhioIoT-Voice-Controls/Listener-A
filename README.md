@@ -7,8 +7,7 @@ This is the most basic implementation of our Vosk listener.  The `docker-compose
 You can see this repo in use in the OhioIoT YouTube video [3 Steps To Your Custom Voice Control](https://youtu.be/_ERvoHMBDac).
 
 ## Installation
-- Plug a USB microphone into a Raspberry Pi
-- SSH into the Raspberry Pi with Docker and Docker Hub installed:
+Plug a USB microphone into a Raspberry Pi.  SSH into the Raspberry Pi with Docker and Docker Hub installed:
 ```
 git clone https://github.com/OhioIoT-Voice-Controls/Listener-A.git listener_a
 cd listener_a
