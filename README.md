@@ -32,10 +32,10 @@ docker compose up -d
 ```
 To tear this down when you are down:
 ```
-cd ~/listener_b
+cd ~/listener_a
 docker compose down
 cd ..
-rm -rf listener_b
+rm -rf listener_a
 ```
 
 ## Links
