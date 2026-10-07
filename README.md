@@ -30,6 +30,13 @@ When you are comfortable that everything is in order, start running the containe
 ```
 docker compose up -d
 ```
+To tear this down when you are down:
+```
+cd ~/listener_b
+docker compose down
+cd ..
+rm -rf listener_b
+```
 
 ## Links
 - [OhioIoT YouTube Channel](https://www.youtube.com/@ohioiot) - Agenda free tutorials showing you how to get started in IoT
