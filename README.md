@@ -11,10 +11,10 @@ Plug a USB microphone into a Raspberry Pi that has Docker and Docker Compose ins
 ```
 git clone https://github.com/OhioIoT-Voice-Controls/Listener-A.git listener_a
 cd listener_a
-rm listener.py README.md
+rm listener.py README.md listener.py
 docker compose up
 ```
-At this point whatever speech that is interpreted by Vosk will be sent out to the Mosquitto broker in the payload of an MQTT message, with topic `voice/command`.  Once you confirm the IP address of your Raspberry Pi, you can connect any other device to the Mosquitto broker, exposed on port 1883.  Your connected devices can subscribe to `voice/command` and hear what you are saying in the incoming message payloads.
+When you see `listening...` in the container logs, the system should be up.  At this point, anything Vosk hears you say will be sent out as the payload of an MQTT message with topic `voice/command`.  Once you confirm the IP address of your Raspberry Pi, you can connect any other device to the Mosquitto broker, exposed on port 1883.  Your connected devices can subscribe to `voice/command` and hear what you are saying in the incoming message payloads.
 
 The `listener.py` in this repo is just an artifact, here for reference only.  You cannot run this file in this root directly with its current configuration.  To witness this file running inside the container on the Raspberry Pi, when the container is running, type:
 ```
