@@ -30,7 +30,7 @@ cd ..
 rm -rf listener_a
 ```
 ## Security Recommendation
-This YouTube video and Git repo were created in good faith.  However, you probably shouldn't run someone else's Docker container if you don't trust it.  You can verify that the container being pulled by this repo with the following:
+You probably shouldn't run someone else's Docker container if you don't trust it.  Rather than trust, you can verify what is in the container with the following steps.  If this doesn't resolve all questions, you can just skip straight to Listener C ([Listener C Build](https://github.com/OhioIoT-Voice-Controls/Listener-C-Build) and [Listener C](https://github.com/OhioIoT-Voice-Controls/Listener-C)), where you build the container image yourself, so any security concerns should be assuaged:
 ```
 docker run -d --network=none --name=listener --device /dev/snd --group-add audio lvincek/listener_a:latest
 docker inspect listener
@@ -59,7 +59,6 @@ cat /app/listener.py
 ```
 When you are done, type `exit` to exit the container, and then `docker rm -f listener` to stop and remove the running container.
 
-If you still have questions, you can just skip straight to Listener C ([Listener C Build](https://github.com/OhioIoT-Voice-Controls/Listener-C-Build) and [Listener C](https://github.com/OhioIoT-Voice-Controls/Listener-C)), where you build the container image yourself, so any security concerns should be assuaged.
 
 ## Links
 - [Listener B](https://github.com/OhioIoT-Voice-Controls/Listener-B)
