@@ -41,11 +41,11 @@ Look at the result from the `inspect` command.  You will notice that the working
             "Cmd": [
                 "python",
                 "-u",
-                "listener.py"         <-- look for this
+                "listener.py"                                 <-- look for this
             ],
             "Image": "lvincek/listener_a:latest",
             "Volumes": null,
-            "WorkingDir": "/app",     <-- look for this
+            "WorkingDir": "/app",                             <-- look for this
             "Entrypoint": null,
 
 ```
