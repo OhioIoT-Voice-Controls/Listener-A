@@ -34,29 +34,15 @@ You probably shouldn't run someone else's Docker container if you don't trust it
 ```
 docker run -d --network=none --name=listener lvincek/listener_a:latest
 ```
-This container will start and then immediately fail because it wasn't given access to the sound system.  You can still inspect what ran:
+This container will start and then immediately fail because it wasn't given access to the sound system.  You can run this command to confirm that the working directory is `/app` and the file being run is `listener.py` in the working directory:
 ```
-docker inspect listener
+docker image inspect lvincek/listener_a:latest --format 'WorkingDir={{.Config.WorkingDir}} Entrypoint={{json .Config.Entrypoint}} Cmd={{json .Config.Cmd}}'
 ```
-Look at the result from the `inspect` command.  You will notice that the working directort is /app, and the command that is run is `python -u listener.py`.  
-```
-            ],
-            "Cmd": [
-                "python",
-                "-u",
-                "listener.py"                                 <-- look for this
-            ],
-            "Image": "lvincek/listener_a:latest",
-            "Volumes": null,
-            "WorkingDir": "/app",                             <-- look for this
-            "Entrypoint": null,
-
-```
-With that, you can run the following command to echo out the `listener.py` that is being run:
+With that, you can run the following command to echo out the `/app/listener.py` that is being run:
 ```
 docker run --rm --network=none --entrypoint cat lvincek/listener_a:latest /app/listener.py
 ```
-When you are done, type  `docker rm -f listener` to stop and remove the running container.
+You will see that this is the file shown in this git repo.  Reviewing the code you can see that it accesses the microphone and interprets speech, as is shown in the video.  When you are done, type `docker rm -f listener` to stop and remove the running container.
 
 
 ## Links
