@@ -7,7 +7,7 @@ This is the most basic implementation of our Vosk listener.  The `docker-compose
 You can see this repo in use in the first part of the OhioIoT YouTube video [3 Steps To Your Custom Voice Control](https://youtu.be/_ERvoHMBDac).
 
 ## Installation
-*** Before you run this code, check out the security recommendation below ***
+*** See the Security Recommendations below before you run these commands ***
 
 Plug a USB microphone into a Raspberry Pi that has Docker and Docker Compose installed.  SSH into the Raspberry Pi and run the following commands:
 ```
