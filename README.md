@@ -8,6 +8,7 @@ You can see this repo in use in the first part of the OhioIoT YouTube video [3 S
 
 ## Installation
 *** Before you run this code, check out the security recommendation below ***
+
 Plug a USB microphone into a Raspberry Pi that has Docker and Docker Compose installed.  SSH into the Raspberry Pi and run the following commands:
 ```
 git clone https://github.com/OhioIoT-Voice-Controls/Listener-A.git listener_a
@@ -38,6 +39,21 @@ docker compose down
 cd ..
 rm -rf listener_a
 ```
+## Security Recommendation
+This YouTube video and Git repo were created in good faith.  However, you probably shouldn't run someone else's Docker container if you don't trust it.  You can verify that the container being pulled by this repo with the following:
+```
+docker run -d --network=none --name=listener --device /dev/snd --group-add audio lvincek/listener_a:latest
+docker inspect listener
+```
+Look at the result from the `inspect` command.  You will notice that the working directly is /app, and the command that the command that is run is `python -u listener.py`.  With that, you can step into the running container with:
+```
+docker exec -it listener sh
+```
+And then, print the file on your screen, and you will see that it is in fact the listener.py that you see in this repo.
+``
+cat /app/listener.py
+```
+In all cases, are there any question, check out [Listener C Build](https://github.com/OhioIoT-Voice-Controls/Listener-C-Build) and [Listener C](https://github.com/OhioIoT-Voice-Controls/Listener-C).  For Listener C, you build the container image yourself, so any security concerns should be assuaged.
 
 ## Links
 - [Listener B](https://github.com/OhioIoT-Voice-Controls/Listener-B)
